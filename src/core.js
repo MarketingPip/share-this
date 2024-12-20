@@ -16,7 +16,7 @@ export default (opts) => {
     }, opts || {});
 
     let initialized = false;
-    let destroyed = false;
+    let destroyed = null;
 
     let _document = _undefined;
     let _window = _undefined;
@@ -40,7 +40,7 @@ export default (opts) => {
             _window.addEventListener("resize", resizeHandler);
 
             lifeCycle = lifeCycleFactory(_document);
-
+            destroyed = false;
             return initialized = true;
         },
         destroy() {
@@ -53,7 +53,7 @@ export default (opts) => {
 
             _document = _undefined;
             _window = _undefined;
-
+            initialized = false
             return destroyed = true;
         },
         reposition() {
@@ -61,7 +61,10 @@ export default (opts) => {
                 stylePopover(popover, getConstrainedRange(), options);
             }
             return !!popover;
-        }
+        },
+         killPopover(){
+             killPopover()
+         }
     };
 
     function addListener(type) { _document.addEventListener(type, selectionCheck); }
