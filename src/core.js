@@ -53,7 +53,7 @@ export default (opts) => {
 
             _document = _undefined;
             _window = _undefined;
-            initialized = false
+            initialized = false;
             return destroyed = true;
         },
         reposition() {
